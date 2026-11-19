@@ -1,772 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Lavender Shop</title>
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: #faf7ff;
-            color: #333;
-        }
-
-        /* HEADER */
-
-        header {
-            background: #6f4b8b;
-            color: white;
-            padding: 18px 8%;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header h1 {
-            font-size: 26px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 15px;
-        }
-
-        nav a:hover {
-            color: #f1dfff;
-        }
-
-
-        /* HERO */
-
-        .hero {
-            min-height: 500px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            text-align: center;
-
-            padding: 30px;
-
-            background:
-                linear-gradient(135deg, #eadcf5, #ffffff);
-        }
-
-        .hero h2 {
-            font-size: 45px;
-            color: #5b3975;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 19px;
-            margin-bottom: 28px;
-        }
-
-        .btn {
-            display: inline-block;
-
-            background: #6f4b8b;
-            color: white;
-
-            padding: 13px 30px;
-
-            border-radius: 25px;
-
-            text-decoration: none;
-
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #51356a;
-            transform: scale(1.05);
-        }
-
-
-        /* ABOUT */
-
-        .about {
-            padding: 70px 8%;
-            text-align: center;
-        }
-
-        .section-title {
-            color: #5b3975;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            max-width: 750px;
-            margin: auto;
-            line-height: 1.8;
-            font-size: 17px;
-        }
-
-
-        /* WHY CHOOSE US */
-
-        .why {
-            padding: 60px 8%;
-            background: #eee3f7;
-            text-align: center;
-        }
-
-        .why-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .why-card {
-            background: white;
-            width: 230px;
-            padding: 30px 20px;
-            border-radius: 15px;
-
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-
-            transition: 0.3s;
-        }
-
-        .why-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .why-card .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .why-card h3 {
-            color: #6f4b8b;
-            margin-bottom: 10px;
-        }
-
-
-        /* PRODUCTS */
-
-        .products {
-            padding: 70px 8%;
-            text-align: center;
-        }
-
-        .product-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 35px;
-        }
-
-        .card {
-            background: white;
-
-            width: 270px;
-
-            padding: 20px;
-
-            border-radius: 18px;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.10);
-
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 190px;
-
-            object-fit: cover;
-
-            border-radius: 12px;
-        }
-
-        .card h3 {
-            color: #6f4b8b;
-            margin: 15px 0 8px;
-        }
-
-        .card p {
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 21px;
-            font-weight: bold;
-            color: #5b3975;
-        }
-
-        .order-btn {
-            display: inline-block;
-
-            margin-top: 12px;
-
-            background: #25D366;
-            color: white;
-
-            padding: 11px 18px;
-
-            border-radius: 22px;
-
-            text-decoration: none;
-
-            transition: 0.3s;
-        }
-
-        .order-btn:hover {
-            background: #1da851;
-            transform: scale(1.04);
-        }
-
-
-        /* REVIEWS */
-
-        .reviews {
-            padding: 70px 8%;
-            background: #f0e8f7;
-            text-align: center;
-        }
-
-        .review-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-
-            margin-top: 30px;
-        }
-
-        .review {
-            background: white;
-
-            width: 280px;
-
-            padding: 25px;
-
-            border-radius: 15px;
-
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        .stars {
-            color: #e5a900;
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
-
-        .review p {
-            line-height: 1.6;
-            margin-bottom: 12px;
-        }
-
-        .review h4 {
-            color: #6f4b8b;
-        }
-
-
-        /* CONTACT */
-
-        .contact {
-            text-align: center;
-
-            padding: 60px 20px;
-
-            background: #6f4b8b;
-
-            color: white;
-        }
-
-        .contact h2 {
-            margin-bottom: 20px;
-            font-size: 30px;
-        }
-
-        .contact p {
-            margin: 8px;
-        }
-
-        .contact .btn {
-            background: white;
-            color: #6f4b8b;
-            margin-top: 20px;
-        }
-
-        .contact .btn:hover {
-            background: #f2eafa;
-        }
-
-
-        /* FOOTER */
-
-        footer {
-            text-align: center;
-
-            padding: 18px;
-
-            background: #3e2850;
-
-            color: white;
-        }
-
-
-        /* MOBILE */
-
-        @media (max-width: 600px) {
-
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 0 7px;
-            }
-
-            .hero {
-                min-height: 420px;
-            }
-
-            .hero h2 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .card {
-                width: 90%;
-            }
-
-            .why-card {
-                width: 90%;
-            }
-
-            .review {
-                width: 90%;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lavender Shop</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#faf7ff;
+    color:#333;
+}
+
+header{
+    background:#6f42c1;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+    font-size:25px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ffd6ff;
+}
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    background:linear-gradient(135deg,#eadcff,#fff);
+}
+
+.hero-content h1{
+    font-size:55px;
+    color:#6f42c1;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:19px;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    background:#6f42c1;
+    color:white;
+    padding:14px 28px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#4f2c91;
+}
+
+section{
+    padding:70px 8%;
+}
+
+.title{
+    text-align:center;
+    color:#6f42c1;
+    font-size:35px;
+    margin-bottom:40px;
+}
+
+.about{
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:35px;
+}
+
+.feature{
+    background:white;
+    width:260px;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 5px 20px #ddd;
+}
+
+.feature h3{
+    color:#6f42c1;
+    margin-bottom:10px;
+}
+
+.products{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.product{
+    background:white;
+    width:280px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px #ddd;
+    text-align:center;
+    padding-bottom:25px;
+}
+
+.product img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.product h3{
+    margin:18px 0 8px;
+    color:#6f42c1;
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.order{
+    display:inline-block;
+    background:#25D366;
+    color:white;
+    padding:11px 20px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.reviews{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.review{
+    background:white;
+    width:300px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px #ddd;
+    text-align:center;
+}
+
+.review p{
+    line-height:1.6;
+    margin-bottom:12px;
+}
+
+.contact{
+    text-align:center;
+    background:#eee5ff;
+}
+
+.contact p{
+    margin:12px 0;
+}
+
+footer{
+    background:#4f2c91;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:700px){
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav a{
+        margin:0 8px;
+        font-size:14px;
+    }
+
+    .hero-content h1{
+        font-size:40px;
+    }
+
+    .product,
+    .feature,
+    .review{
+        width:100%;
+        max-width:350px;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
-
-    <h1>Lavender Shop 💜</h1>
+    <div class="logo">💜 Lavender Shop</div>
 
     <nav>
-
         <a href="#home">Home</a>
-
         <a href="#about">About</a>
-
         <a href="#products">Products</a>
-
         <a href="#reviews">Reviews</a>
-
         <a href="#contact">Contact</a>
-
     </nav>
-
 </header>
 
-
-
-<!-- HOME -->
-
 <section class="hero" id="home">
-
-    <div>
-
-        <h2>Welcome to Lavender Shop</h2>
+    <div class="hero-content">
+        <h1>Welcome to Lavender Shop</h1>
 
         <p>
-            Beautiful products made with love 💜
+            Stylish products made with love 💜
         </p>
 
         <a href="#products" class="btn">
             Shop Now
         </a>
-
     </div>
-
 </section>
 
+<section id="about">
+    <h2 class="title">About Us</h2>
 
+    <div class="about">
+        <p>
+            Welcome to Lavender Shop! We provide beautiful,
+            stylish and affordable products for everyone.
+            Our goal is to give you quality products and
+            a happy shopping experience.
+        </p>
 
-<!-- ABOUT -->
+        <div class="features">
 
-<section class="about" id="about">
+            <div class="feature">
+                <h3>✨ Quality</h3>
+                <p>We focus on good quality products.</p>
+            </div>
 
-    <h2 class="section-title">
-        About Us
-    </h2>
+            <div class="feature">
+                <h3>💰 Affordable</h3>
+                <p>Beautiful products at reasonable prices.</p>
+            </div>
 
-    <p>
+            <div class="feature">
+                <h3>🚚 Fast Service</h3>
+                <p>Quick and friendly customer service.</p>
+            </div>
 
-        Welcome to Lavender Shop!
-
-        We provide stylish, beautiful and
-        quality products at affordable prices.
-
-        Our goal is to make every customer
-        happy with our products and service.
-
-    </p>
-
+        </div>
+    </div>
 </section>
 
+<section id="products">
+    <h2 class="title">Our Products</h2>
 
+    <div class="products">
 
-<!-- WHY CHOOSE US -->
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80">
 
-<section class="why">
+            <h3>Hand Bag</h3>
 
-    <h2 class="section-title">
-        Why Choose Us?
-    </h2>
+            <p class="price">₹799</p>
 
-
-    <div class="why-container">
-
-
-        <div class="why-card">
-
-            <div class="icon">
-                ⭐
-            </div>
-
-            <h3>Quality</h3>
-
-            <p>
-                We provide quality products
-                for our customers.
-            </p>
-
+            <a class="order"
+               href="https://wa.me/919876543210?text=Hello%20I%20want%20to%20order%20the%20Hand%20Bag">
+               Order on WhatsApp
+            </a>
         </div>
 
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80">
 
+            <h3>Stylish Dress</h3>
 
-        <div class="why-card">
+            <p class="price">₹999</p>
 
-            <div class="icon">
-                💰
-            </div>
-
-            <h3>Affordable</h3>
-
-            <p>
-                Beautiful products at
-                reasonable prices.
-            </p>
-
+            <a class="order"
+               href="https://wa.me/919876543210?text=Hello%20I%20want%20to%20order%20the%20Stylish%20Dress">
+               Order on WhatsApp
+            </a>
         </div>
 
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80">
 
+            <h3>Jewellery</h3>
 
-        <div class="why-card">
+            <p class="price">₹499</p>
 
-            <div class="icon">
-                🚚
-            </div>
-
-            <h3>Fast Delivery</h3>
-
-            <p>
-                Quick and safe delivery
-                to your doorstep.
-            </p>
-
-        </div>
-
-
-
-        <div class="why-card">
-
-            <div class="icon">
-                ❤️
-            </div>
-
-            <h3>Customer Care</h3>
-
-            <p>
-                We care about every
-                customer.
-            </p>
-
+            <a class="order"
+               href="https://wa.me/919876543210?text=Hello%20I%20want%20to%20order%20the%20Jewellery">
+               Order on WhatsApp
+            </a>
         </div>
 
     </div>
-
 </section>
 
+<section id="reviews">
+    <h2 class="title">Customer Reviews</h2>
 
-
-<!-- PRODUCTS -->
-
-<section class="products" id="products">
-
-    <h2 class="section-title">
-        Our Products
-    </h2>
-
-
-    <div class="product-container">
-
-
-        <!-- PRODUCT 1 -->
-
-        <div class="card">
-
-            <img
-            src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"
-            alt="Hand Bag">
-
-            <h3>
-                Hand Bag
-            </h3>
-
-            <p>
-                Stylish and beautiful handbag.
-            </p>
-
-            <p class="price">
-                ₹799
-            </p>
-
-
-            <a
-            class="order-btn"
-            href="https://wa.me/919876543210?text=I%20want%20to%20order%20Hand%20Bag">
-
-                Order on WhatsApp
-
-            </a>
-
-        </div>
-
-
-
-        <!-- PRODUCT 2 -->
-
-        <div class="card">
-
-            <img
-            src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80"
-            alt="Dress">
-
-            <h3>
-                Dress
-            </h3>
-
-            <p>
-                Comfortable and trendy dress.
-            </p>
-
-            <p class="price">
-                ₹999
-            </p>
-
-
-            <a
-            class="order-btn"
-            href="https://wa.me/919876543210?text=I%20want%20to%20order%20Dress">
-
-                Order on WhatsApp
-
-            </a>
-
-        </div>
-
-
-
-        <!-- PRODUCT 3 -->
-
-        <div class="card">
-
-            <img
-            src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80"
-            alt="Jewellery">
-
-            <h3>
-                Jewellery
-            </h3>
-
-            <p>
-                Elegant jewellery collection.
-            </p>
-
-            <p class="price">
-                ₹499
-            </p>
-
-
-            <a
-            class="order-btn"
-            href="https://wa.me/919876543210?text=I%20want%20to%20order%20Jewellery">
-
-                Order on WhatsApp
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- REVIEWS -->
-
-<section class="reviews" id="reviews">
-
-    <h2 class="section-title">
-        Customer Reviews
-    </h2>
-
-
-    <div class="review-container">
-
+    <div class="reviews">
 
         <div class="review">
-
-            <div class="stars">
-                ★★★★★
-            </div>
-
-            <p>
-                "Beautiful products and
-                excellent quality!"
-            </p>
-
-            <h4>
-                - Priya
-            </h4>
-
+            <p>“Beautiful products and very good service!”</p>
+            <strong>— Priya ⭐⭐⭐⭐⭐</strong>
         </div>
 
-
-
         <div class="review">
-
-            <div class="stars">
-                ★★★★★
-            </div>
-
-            <p>
-                "Very happy with my purchase.
-                Fast delivery!"
-            </p>
-
-            <h4>
-                - Anitha
-            </h4>
-
+            <p>“The products are stylish and affordable.”</p>
+            <strong>— Anu ⭐⭐⭐⭐⭐</strong>
         </div>
 
-
-
         <div class="review">
-
-            <div class="stars">
-                ★★★★★
-            </div>
-
-            <p>
-                "Amazing collection and
-                affordable prices."
-            </p>
-
-            <h4>
-                - Divya
-            </h4>
-
+            <p>“Very happy with my purchase!”</p>
+            <strong>— Divya ⭐⭐⭐⭐⭐</strong>
         </div>
 
     </div>
-
 </section>
 
+<section id="contact" class="contact">
+    <h2 class="title">Contact Us</h2>
 
+    <p>📱 WhatsApp: +91 98765 43210</p>
 
-<!-- CONTACT -->
+    <p>📧 Email: lavendershop@gmail.com</p>
 
-<section class="contact" id="contact">
+    <p>📍 Tirupur, Tamil Nadu</p>
 
-    <h2>
-        Contact Us
-    </h2>
+    <br>
 
-    <p>
-        📞 +91 98765 43210
-    </p>
-
-    <p>
-        📧 lavendershop@gmail.com
-    </p>
-
-
-    <a
-    class="btn"
-    href="https://wa.me/919876543210">
-
-        Chat on WhatsApp
-
+    <a class="btn"
+       href="https://wa.me/919876543210">
+       Chat on WhatsApp
     </a>
-
 </section>
-
-
-
-<!-- FOOTER -->
 
 <footer>
-
-    <p>
-        © 2026 Lavender Shop | All Rights Reserved
-    </p>
-
+    <p>© 2026 Lavender Shop | All Rights Reserved</p>
 </footer>
-
 
 </body>
 </html>
